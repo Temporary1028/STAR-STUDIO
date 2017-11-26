@@ -1,0 +1,56 @@
+@charset "UTF-8";
+/* CSS Document */  /* */
+img {
+	display: block;
+	max-width: 100%;
+	border-radius: 8px;
+}
+
+/* 左侧菜单栏*/
+.sidelist {
+	border: 0;
+	border-radius: 20px;
+}
+
+.sidelist a {
+	margin-bottom: 5px;
+	padding: 10px;
+}
+
+.project-list .title {
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 5px;
+	line-height: 1.5;
+}
+
+.project-list .title:hover {
+	color: #F35F62;
+	transition: 0.2s;
+}
+
+.project-list .title a {
+	text-decoration: none;
+}
+
+.project-list .info {
+	color: #888888;
+}
+
+.project-list {
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	border-bottom: solid 3px #cccccc;
+}
+
+/* 右上方搜索栏*/
+.search-bar {
+	margin-bottom: 20px;
+}
+
+/* 右侧签到栏*/
+.sign {
+	text-align: center;
+	padding: 7px 0;
+	color: #888888;
+}
