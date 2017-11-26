@@ -1,0 +1,46 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* 消除边距 */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+position:absolute; 
+top:0; 
+left:0; 
+height:100%; 
+width:100%; 
+background-image:url( ../images/large-bg.jpg); 
+background-position: center 0; 
+background-repeat: no-repeat; 
+background-attachment:fixed; 
+background-size: cover; 
+-webkit-background-size: cover;/* 兼容Webkit内核浏览器如Chrome和Safari */ 
+-o-background-size: cover;/* 兼容Opera */ 
+zoom: 1; 
+}
+
+.start {
+	margin-top: 20%;
+	margin-left: 60%;
+}
+
+.glyphicon-off {
+	font-size: 120px;
+	color :#EDD5A3;
+	margin: 0 0 30px 0;
+}
+
+.bg button {
+	background: none;
+	border: none;
+}
+
+p {
+	font-size: 40px;
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+	color:#FCFDF1;
+}
