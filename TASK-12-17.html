@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>TASK</title>
+<style>
+  center {
+    margin-top: 200px;
+  }
+  
+
+    
+   li {
+    display:inline-block;
+    background-color: coral;
+    color: white;
+    font-size:40px;
+    text-align:center;
+    padding:5px;
+    margin:5px;
+    cursor:pointer;
+    border-radius: 14px;
+     margin: 20px;
+  }
+  
+  input {
+    height: 40px;
+    width: 380px;
+    display: block;
+    margin-bottom: 20px;
+    font-size: 30px;
+  }
+  
+  button {
+    width: 104px;
+    height: 56px;
+    margin: 12px;
+    background-color: lightcoral;
+    border: none;
+    border-radius: 20px;
+    font-size: 20px;
+  }
+  
+  botton:hover {
+    background-color: coral;
+  }
+    </style>
+
+</head>
+
+<body>
+  <center>
+   <h1>请输入数字</h1>
+   <input type="text" id="in" name="number">
+    <button id="left-in">左侧入</button>
+    <button id="right-in">右侧入</button>
+    <button id="left-out">左侧出</button>
+    <button id="right-out">右侧出</button>
+    <!--数字队列-->
+    <ul id="out"></ul>
+</center>
+<script>
+  //定义变量 方便使用
+  var iN = document.getElementById("in");
+  var out = document.getElementById("out");
+  var bli = document.getElementById("left-in");
+  var bri = document.getElementById("right-in");
+  var blo = document.getElementById("left-out");
+  var bro = document.getElementById("right-out");
+  //输入数字
+  function insert(direction) {
+    if(iN.value == ""){
+      alert("请输入")  //当输入栏为空时，跳出提示
+    }else if (isNaN(iN.value)) {
+      alert("请输入数字")  // 当输入为非数字时，跳出提示
+    }else {
+      var oli = document.createElement("li");
+      oli.innerHTML= iN.value;
+      if (direction === "left"){  //点击左侧按钮
+        out.insertBefore(oli,out.firstChild);//将生成的li元素从前方放入
+      }else if(direction === "right"){ //点击右侧按钮
+        out.appendChild(oli);  //将生成的li元素从后面放入
+      }
+    }
+  }
+  
+  //删除数字
+  function del(node,direction){
+    if(out.childNodes.length<= 0){  //若没有元素，则跳出提示
+      //alert("已经没有可删除的元素")；
+      return false;
+    }else {
+      if (direction === "left"){   //删除左侧元素
+      out.removeChild(out.firstChild);
+    } else if (direction === "right"){
+      out.removeChild(out.lastChild);  //删除右侧元素
+    } else {
+      alert("删除数字：" +out.removeChild(node).innerText +"！");
+      }  
+    }
+  }
+  
+  //绑定按钮
+  bli.onclick = function(){insert("left");};
+  bri.onclick = function(){insert("right");};
+  blo.onclick = function(){del(-1,"left");};
+  bro.onclick = function(){del(-1,"right");};
+  out.onclick = function(){del(event.target)};
+  </script>
+</body>
+</html>
+
