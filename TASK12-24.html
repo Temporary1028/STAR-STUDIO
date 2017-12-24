@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IFE JavaScript Task 06</title>
+  <style>  /* 设置不同方块样式*/
+    div{
+      border:2px solid   coral;
+      display: inline-block;
+      padding: 10px 5px;
+      margin: 5px;
+      background-color: white;
+    }
+    div div{
+      width:500px;
+      height: 100px;
+    }
+    div div div{
+      width: 223px;
+      height: 65px;
+    }
+    div div div div{
+      width: 85px;
+      height: 30px;
+    }
+    div div div div div{
+      width: 20px;
+      height: 0;
+      margin: 2px;
+    }
+    button {
+      width: 200px;
+      
+    }
+  </style>
+</head>
+<body>  
+  <div> 
+    <div>
+      <div>
+        <div>
+          <div></div>
+          <div></div>
+        </div>
+        <div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+      <div>
+        <div>
+          <div></div>
+          <div></div>
+        </div>
+        <div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div>
+        <div>
+          <div></div>
+          <div></div>
+        </div>
+        <div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+      <div>
+        <div>
+          <div></div>
+          <div></div>
+        </div>
+        <div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  <input type="button" value="前序遍历" />
+  
+  <input type="button" value="中序遍历" />
+  
+  <input type="button" value="后序遍历" />
+  
+  
+  <script>  /*遍历函数部分*/
+    //首先定义变量
+    var oDivs = [];
+    var divs = document.getElementsByTagName("div");
+    var oBtns = document.getElementsByTagName("input");
+    
+    function pre(node){       //前序遍历
+      if (node != null) {
+        oDivs.push(node);
+        pre(node.firstElementChild);
+        pre(node.lastElementChild);
+      }
+    }
+    
+    function mid(node){  // 中序遍历
+      if (node != null) {
+        mid(node.firstElementChild);
+        oDivs.push(node);
+        mid(node.lastElementChild);
+      }
+    } 
+    
+    function las(node){   //后序遍历
+      if (node != null) {
+        las(node.firstElementChild);
+        las(node.lastElementChild);
+        oDivs.push(node);
+      }
+    }
+    
+    //绑定事件
+    oBtns[0].onclick = function(){
+      oDivs = [];
+      pre(divs[0]);
+      var i = 0;
+      function onPre(){
+        if (oDivs[i-1]) oDivs[i-1].style.backgroundColor = 'white';
+        if (i == oDivs.length) {
+          clearInterval(setOnPre);
+          return false;
+        }
+        oDivs[i].style.backgroundColor = 'red';
+        i++;
+      }
+      var setOnPre = setInterval(onPre,1000);
+    }
+    oBtns[1].onclick = function(){
+      oDivs = [];
+      mid(divs[0]);
+      var i = 0;
+      function onMid(){
+        if (oDivs[i-1]) oDivs[i-1].style.backgroundColor = 'white';
+        if (i == oDivs.length) {
+          clearInterval(setOnMid);
+          return false;
+        }
+        oDivs[i].style.backgroundColor = 'red';
+        i++;
+      }
+      var setOnMid = setInterval(onMid,1000);
+    }
+    oBtns[2].onclick = function(){
+      oDivs = [];
+      las(divs[0]);
+      var i = 0;
+      function onLas(){
+        if (oDivs[i-1]) oDivs[i-1].style.backgroundColor = 'white';
+        if (i == oDivs.length) {
+          clearInterval(setOnLas);
+          return false;
+        }
+        oDivs[i].style.backgroundColor = 'red';
+        i++;
+      }
+      var setOnLas = setInterval(onLas,1000);
+    }
+  </script>
+</body>
+</html>
